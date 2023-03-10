@@ -105,8 +105,8 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	{ MODKEY, XK_minus,  spawn,          {.v = brupcmd} },
-    { MODKEY, XK_equal, spawn,          {.v = brdowncmd} },
+	{ MODKEY, XK_equal,  spawn,          {.v = brupcmd} },
+    { MODKEY, XK_minus, spawn,          {.v = brdowncmd} },
 	{ MODKEY|ShiftMask, XK_m, spawn, {.v = mutecmd } },
 	{ MODKEY|ShiftMask, XK_minus, spawn, {.v = voldowncmd } },
 	{ MODKEY|ShiftMask, XK_equal, spawn, {.v = volupcmd } },
