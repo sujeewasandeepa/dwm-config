@@ -1,4 +1,5 @@
 /* See LICENSE file for copyright and license details. */
+#include <X11/XF86keysym.h>
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
@@ -43,6 +44,16 @@ static const Layout layouts[] = {
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 };
+
+static const char *brupcmd[] = { "brightnessctl", "set", "10%+", NULL };
+static const char *brdowncmd[] = { "brightnessctl", "set", "10%-", NULL };
+
+
+static const char *mutecmd[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
+static const char *volupcmd[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
+static const char *voldowncmd[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
+
+
 
 /* key definitions */
 #define MODKEY Mod4Mask
@@ -94,6 +105,11 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY, XK_minus,  spawn,          {.v = brupcmd} },
+    { MODKEY, XK_equal, spawn,          {.v = brdowncmd} },
+	{ MODKEY|ShiftMask, XK_m, spawn, {.v = mutecmd } },
+	{ MODKEY|ShiftMask, XK_minus, spawn, {.v = voldowncmd } },
+	{ MODKEY|ShiftMask, XK_equal, spawn, {.v = volupcmd } },
 };
 
 /* button definitions */
